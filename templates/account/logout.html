@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+<section class="vh-100" style="background-color: #508bfc;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <h3 class="mb-5">{% trans "Sign Out" %}</h3>
+
+            <p>{% trans 'Are you sure you want to sign out?' %}</p>
+
+            <form method="POST" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+            <div class="form-outline mb-4">
+              <input  id="typeEmailX-2" class="form-control form-control-lg" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" >
+              {% endif %}
+              <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans "Sign Out" %}</button>
+            
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

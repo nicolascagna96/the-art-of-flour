@@ -10,7 +10,8 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
-    summernote_fields = '__all__'
+    summernote_fields = ('content')
+
 
 
 admin.site.register(Post, PostAdmin)

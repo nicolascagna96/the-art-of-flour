@@ -41,16 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
-    'django.contrib.staticfiles',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
     'crispy_forms',
     'blog',
 ]
+
 
 SITE_ID = 1
 
@@ -87,6 +89,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'theartofflour.wsgi.application'
 
