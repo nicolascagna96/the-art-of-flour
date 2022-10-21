@@ -1,26 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!--Main layout-->
+<main class="my-5">
+    <div class="container">
+        <!--Section: Content-->
 
-<div class="container-fluid">
-    <div class="row">
+        <section class="text-center">
+            <h4 class="mb-5"><strong>Latest Recipies</strong></h4>
 
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
+
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="#">
+                                    src="https://res.cloudinary.com/dzodn9eno/image/upload/v1666275807/samples/the-art-of-flour_kfcddu.jpg"
+                                    alt="computer screen with random code">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                <img class="card-img-top" alt="article submitted by author"
+                                    src=" {{ post.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                    <p class="author">Author: {{ post.author }} </p>
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug  %}" class="post-link">
@@ -40,7 +45,8 @@
                 {% endfor %}
 
             </div>
-        </div>
+    </div>
+
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
@@ -55,5 +61,9 @@
         </ul>
     </nav>
     {% endif %}
-</div>
-{%endblock%}
+    </div>
+    </div>
+    </section>
+</main>
+
+{% endblock %}
