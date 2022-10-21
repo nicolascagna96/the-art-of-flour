@@ -10,7 +10,7 @@
         <!--Section: Content-->
 
         <section class="text-center">
-            <h4 class="mb-5"><strong>Latest Recipies</strong></h4>
+            <h4 class="mb-5"><strong>Latest Recipes</strong></h4>
 
             <div class="row">
                 {% for post in post_list %}
@@ -22,7 +22,7 @@
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
                                     src="https://res.cloudinary.com/dzodn9eno/image/upload/v1666275807/samples/the-art-of-flour_kfcddu.jpg"
-                                    alt="computer screen with random code">
+                                    alt="">
                                 {% else %}
                                 <img class="card-img-top" alt="article submitted by author"
                                     src=" {{ post.featured_image.url }}">

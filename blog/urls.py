@@ -1,8 +1,10 @@
 from . import views
-from django.urls import path
+from django.urls import path, reverse
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('about/', views.about_page, name='about'),
+    path('like/<slug:slug>', views.PostLike.as_view(), name='post_like')
 ]
