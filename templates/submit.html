@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% load crispy_forms_tags %}
+{% load cloudinary %}
+
+<form action = "/" method="POST">
+    {% csrf_token %}
+    <label for="username"> Your Name</label>
+    <input id="username" name="username" type="text">
+    <button type="submit">Send</button>
+</form>
+{% enblock %}

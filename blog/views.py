@@ -1,8 +1,12 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.views.generic import ListView, TemplateView, View
+from .forms import CommentForm
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from .models import Post
-from .forms import CommentForm
+
+
 
 
 class PostList(generic.ListView):
@@ -17,7 +21,7 @@ def about_page(request):
     """
     Viewing the about page.
     """
-    return render(request, 'about.html')
+    return render(request, 'about.html,', {})
 
 
 class PostDetail(View):
@@ -82,4 +86,8 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        
+
+def submit(request):
+    return render(request, 'submit.html', {})
 

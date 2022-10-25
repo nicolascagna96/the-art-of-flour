@@ -4,8 +4,8 @@ body {
 
 .navbar-brand {
     font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
+    font-size: 1.6rem;
+    font-weight: 900;
     color: #4A4A4F;
 }
 
@@ -105,3 +105,5 @@ body {
     margin-left: 5%;
     color: lightgray;
 }
+
+
