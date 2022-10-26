@@ -50,18 +50,10 @@ def __str__(self):
     return f"Comment {self.body} by {self.name}"
 
 
-# class Recipes(models):
+class Recipes(models.Model):
 
-#     user_name= models.CharField(max_length=50, blank=False, null=False)
-#     recipe_name = models.CharField(
-#         max_length=100, blank=False, null=False)
-#     ingredients_recipes = models.TextField(
-#         max_length=200,blank=False, null=False)
-#     method = models.TextField(max_length=500, blank=False, null= False)
-#     image = CloudinaryField('image', null=False, blank=False)
-
-    
-#     def __str__(self):
-#         return self.recipe
-
-
+    user_name = models.CharField(max_length=50, blank=False, null=False)
+    recipe_name = models.CharField(
+        max_length=100, blank=False, null=False)
+    body = models.TextField()
+    image = CloudinaryField('image', null=False, blank=False)

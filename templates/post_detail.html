@@ -1,28 +1,30 @@
 {% extends 'base.html' %} {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
+<div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.title }}</h1>
+                <article>
+                    <header class="mb-4">
+                        <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
+                
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <div class="text-muted fst-italic mb-2">{{ post.author }} | {{ post.created_on }}</div>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+        </header>
+            <figure class="mb-4">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                <img class="img-fluid rounded" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
+                <img class="img-fluid rounded" src=" {{ post.featured_image.url }}" width="80%" >
                 {% endif %}
-            </div>
-        </div>
+            </figure>
     </div>
 </div>
 
-<div class="container">
+<section class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">

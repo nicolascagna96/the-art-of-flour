@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, TemplateView, View
 from .forms import CommentForm
+from .forms import SubmitForm
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
+from .models import Recipes
 
 
 
@@ -89,5 +91,6 @@ class PostLike(View):
         
 
 def submit(request):
-    return render(request, 'submit.html', {})
-
+    form = SubmitForm(request.POST, request.FILES)
+    print(request.FILES)
+    return render(request, 'submit.html', {'form': form})
