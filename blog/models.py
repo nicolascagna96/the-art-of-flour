@@ -52,8 +52,13 @@ def __str__(self):
 
 class Recipes(models.Model):
 
-    user_name = models.CharField(max_length=50, blank=False, null=False)
+    name = models.CharField(
+        'Your name', max_length=50, blank=False, null=False, default="")
     recipe_name = models.CharField(
-        max_length=100, blank=False, null=False)
-    body = models.TextField()
-    image = CloudinaryField('image', null=False, blank=False)
+        'Recipe Title', max_length=100, blank=False, null=False)
+    body = models.TextField('Ingredients and Method')
+    image = models.ImageField('Image', upload_to='djangouploads/files/covers')
+
+    def __str__(self):
+        return self.name
+

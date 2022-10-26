@@ -10,5 +10,5 @@ urlpatterns = [
         views.generic.TemplateView.as_view(template_name='about.html'),
         name='about'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
-    path('submit', views.submit, name='submit')
+    path('submit', views.submit, name='submit'),
 ]

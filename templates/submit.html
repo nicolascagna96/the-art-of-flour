@@ -1,8 +1,21 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
 {% load cloudinary %}
+<center>
+    <h1>SUBMIT YOUR RECIPE</h1>
+    <br />
+    <hr />
+    {% if submitted %}
+        Your recipe was Submitted Successfully!
 
-{{form}}
+    {% else %}
 
+        <form method="POST" action="{% url 'submit' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+    {% endif %}
+</center>
 {% endblock %}

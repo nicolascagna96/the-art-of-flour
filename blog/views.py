@@ -88,9 +88,18 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-        
+
 
 def submit(request):
-    form = SubmitForm(request.POST, request.FILES)
-    print(request.FILES)
-    return render(request, 'submit.html', {'form': form})
+    submitted = False
+    if request.method == "POST":
+        form = SubmitForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('submit?submitted=True')
+    else:
+        form = SubmitForm
+        if 'submitted' in request.GET:
+            submitted = True
+
+        return render(request, 'submit.html', {'form': form, 'submitted': submitted})

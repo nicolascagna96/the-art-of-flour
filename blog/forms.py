@@ -9,12 +9,10 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('body',)
 
+# Create Submit Recipes Form
+
 
 class SubmitForm(ModelForm):
-    user_name = forms.TextInput()
-    recipe_name = forms.TextInput()
-    body = forms.TextInput()
-    image = forms.ImageField()
 
     class Meta:
         model = Recipes
