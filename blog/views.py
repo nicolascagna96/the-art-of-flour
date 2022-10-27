@@ -9,8 +9,6 @@ from .models import Post
 from .models import Recipes
 
 
-
-
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -46,7 +44,7 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -101,5 +99,6 @@ def submit(request):
         form = SubmitForm
         if 'submitted' in request.GET:
             submitted = True
-
-        return render(request, 'submit.html', {'form': form, 'submitted': submitted})
+        form = SubmitForm()
+        return render(
+            request, 'submit.html', {'form': form, 'submitted': submitted})

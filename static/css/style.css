@@ -72,24 +72,13 @@ body {
     overflow: hidden;
 }
 
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
 
 .post-link {
     text-decoration: none;
     color: #445261;
 }
+
+
 
 .post-link:hover,
 .page-link {
@@ -101,10 +90,27 @@ body {
     margin-left: 5%;
 }
 
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
 }
 
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
 
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
 
+.about-section{
+    min-height: 100vh;
+    width: 95%;
+    font-size: 14pz;
+}

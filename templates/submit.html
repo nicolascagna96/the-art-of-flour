@@ -2,20 +2,27 @@
 {% block content %}
 {% load crispy_forms_tags %}
 {% load cloudinary %}
-<center>
-    <h1>SUBMIT YOUR RECIPE</h1>
-    <br />
-    <hr />
+<div class="container mt-3 submission-form" style="width:95%; font-size: 14px; min-height: 100vh;">
+    <div class="card-body all-prints-cards">
+        <h2>Submit Your Recipe:</h2>
+        <hr />
+        <h5>The best recipes will be posted in our Blog!</h5>
+
+    <form action="" method="POST" class="card p-3 mt-5">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
+
+
     {% if submitted %}
-        Your recipe was Submitted Successfully!
-
+    <div class=" text-center alert alert-success" role="alert">
+        Your Recipe Was Submitted Successfully! Thank you for sharing!
+    </div>
     {% else %}
-
-        <form method="POST" action="{% url 'submit' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Submit" class="btn btn-secondary">
-        </form>
+    
     {% endif %}
-</center>
+
+</div>
+</div>
 {% endblock %}

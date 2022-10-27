@@ -4,6 +4,7 @@ from .models import Comment
 from .models import Recipes
 from django.contrib.auth.models import User
 
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -16,4 +17,19 @@ class SubmitForm(ModelForm):
 
     class Meta:
         model = Recipes
-        fields = '__all__'
+        fields = (
+            'name', 'email', 'recipe_name', 'body', 'image')
+
+        labels = {
+            'name': 'Name',
+            'email': 'Email Address',
+            'recipe_name': 'Recipe Title',
+            'body': 'Ingredients and Method',
+        }
+
+    widgets = {
+            'name': forms.TextInput(attrs={'class': 'form:control'}),
+            'email': forms.EmailInput(attrs={'class': 'form:control'}),
+            'recipe_name': forms.TextInput(attrs={'class': 'form:control'}),
+            'body': forms.TextInput(attrs={'class': 'form:control'}),
+        }

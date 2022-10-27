@@ -21,7 +21,7 @@
 </head>
 
 <body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="{% url 'home' %}">The Art of Flour</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,43 +64,54 @@
     </main>
 
 
-
-    <!--Footer-->
-    <footer class="py-5 bg-light">
-
-      <div class="text-center py-4 align-items-center">
-        <p>Follow The Art Of Flour on social medias</p>
-        <a href="https://www.youtube.com" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.facebook.com" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://twitter.com" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://github.com" class="btn btn-primary m-1" role="button" rel="nofollow" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
+    <footer class="bg-dark text-center mt-auto py-3 text-white">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/nicolascagna96" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
       </div>
-
+      <!-- Grid container -->
+    
       <!-- Copyright -->
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2022 Copyright:
-        <a class="text-dark" href="{% url 'home' %}">The Art Of Flour</a>
+        <a class="text-white" href="{% url 'home' %}">The Art Of Flour</a>
       </div>
+      <!-- Copyright -->
     </footer>
-    <!-- Optional JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+      
+    </div>
+    <!-- End of .container -->
 
     <script>
-      
-      if (window.location.pathname == '/about') {
-            document.getElementById('about-page').classList.add('nav-link-active');
-        }
-    </script>>
+      setTimeout(function(){
+          let messages = document.getElementById("msg");
+          let alert = new bootstrap.Alert(messages);
+          alert.close();
+      }, 3000);
+    </script>
+
 </body>
 
 </html>
