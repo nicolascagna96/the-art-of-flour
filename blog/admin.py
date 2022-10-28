@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Recipes
+from .models import Post, Comment, Recipes, Contact
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -41,3 +41,15 @@ class RecipesAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Recipes)
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = (
+        'name', 'email', 'body','image')
+    search_fields = ('name', 'email')
+    actions = ['approve_recipes']
+
+    def approve_recipes(self, request, queryset):
+        queryset.update(approved=True)
+
+admin.site.register(Contact)

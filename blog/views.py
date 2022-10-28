@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, TemplateView, View
 from .forms import CommentForm
 from .forms import SubmitForm
+from .forms import ContactForm
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -81,6 +82,7 @@ class PostLike(View):
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
+
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
@@ -94,7 +96,9 @@ def submit(request):
         form = SubmitForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('submit?submitted=True')
+            messages.success(
+                request, 'Your recipe has been sent successfully!')
+            return HttpResponseRedirect('/?submitted=True')
     else:
         form = SubmitForm
         if 'submitted' in request.GET:
@@ -102,3 +106,21 @@ def submit(request):
         form = SubmitForm()
         return render(
             request, 'submit.html', {'form': form, 'submitted': submitted})
+
+
+def add_contact(request):
+    submitted = False
+    if request.method == "POST":
+        form = ContactForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request, 'Your message has been sent successfully!')
+            return HttpResponseRedirect('/?submitted=True')
+    else:
+        form = ContactForm()
+        if 'submitted' in request.GET:
+            submitted = True
+        form = ContactForm() 
+        return render(
+            request, 'add_contact.html', {'form': form, 'submitted': submitted})

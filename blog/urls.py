@@ -11,4 +11,5 @@ urlpatterns = [
         name='about'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
     path('submit', views.submit, name='submit'),
+    path('add_contact', views.add_contact, name='add_contact'),
 ]

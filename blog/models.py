@@ -50,6 +50,8 @@ class Meta:
 def __str__(self):
     return f"Comment {self.body} by {self.name}"
 
+# Model for submitting recipes
+
 
 class Recipes(models.Model):
 
@@ -58,6 +60,18 @@ class Recipes(models.Model):
     email = models.EmailField(blank=True)
     recipe_name = models.CharField(
         'Recipe Title', max_length=100, blank=False, null=False)
+    body = models.TextField(blank=False)
+    image = models.ImageField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+# Contact form model
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=50, blank=False, null=False)
+    email = models.EmailField(blank=False, null=False)
     body = models.TextField(blank=False)
     image = models.ImageField(blank=True)
 
