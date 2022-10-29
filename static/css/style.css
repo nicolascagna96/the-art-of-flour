@@ -2,10 +2,10 @@ body {
     background-color: #F9FAFC;
 }
 
-.navbar-brand {
+.brand {
     font-family: Lato, sans-serif;
-    font-size: 1.6rem;
-    font-weight: 900;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: #4A4A4F;
 }
 
@@ -72,13 +72,24 @@ body {
     overflow: hidden;
 }
 
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #445261;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
 
 .post-link {
     text-decoration: none;
     color: #445261;
 }
-
-
 
 .post-link:hover,
 .page-link {
@@ -88,6 +99,27 @@ body {
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+.btn-signup {
+    background-color: #23BBBB;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #23BBBB;
+}
+
+.link {
+    color: #23BBBB;
+    text-decoration: none;
 }
 
 .link:hover,
@@ -108,5 +140,3 @@ body {
     background: transparent;
     border: none;
 }
-
-

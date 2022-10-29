@@ -121,6 +121,6 @@ def add_contact(request):
         form = ContactForm()
         if 'submitted' in request.GET:
             submitted = True
-        form = ContactForm() 
+        form = ContactForm()
         return render(
             request, 'add_contact.html', {'form': form, 'submitted': submitted})

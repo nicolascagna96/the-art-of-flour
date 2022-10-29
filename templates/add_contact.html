@@ -2,16 +2,17 @@
 {% block content %}
 {% load crispy_forms_tags %}
 {% load cloudinary %}
-<div class="container mt-3 submission-form" style="width:95%; font-size: 14px; min-height: 100vh;">
+
+
+<div class="container col-12 submission-form" style="width:95%; font-size: 14px; min-height: 100vh;">
     <div class="card-body all-prints-cards">
         <h2>Contact us</h2>
         <hr />
-        <p>Feel free to contact us! Ask us anything about our recipes.</p>
-        <p>We would like to hear your feedbacks about our recipes!</p>
+        <p>Feel free to contact us! We would like to hear your feedbacks about our recipes!</p>
     <form action="" method="POST" class="card p-3 mt-5">
         {% csrf_token %}
         {{form|crispy}}
-        <input type="submit" value="Submit" class="btn btn-secondary">
+        <input type="submit" value="Submit" class="btn btn-primary">
     </form>
 
 </div>

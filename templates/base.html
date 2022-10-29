@@ -31,7 +31,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'about' %}">About</a>
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
@@ -82,10 +82,8 @@
     </main>
 
 
-    <footer class="bg-dark text-center mt-auto py-3 text-white">
-      <!-- Grid container -->
-      <div class="container p-4 pb-0">
-        <!-- Section: Social media -->
+    <footer class="footer bg-dark text-center mt-auto py-3 text-white">
+      <div class="row">
         <section class="mb-4">
           <!-- Facebook -->
           <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
@@ -107,16 +105,13 @@
             ><i class="fab fa-github"></i
           ></a>
         </section>
-        <!-- Section: Social media -->
       </div>
-      <!-- Grid container -->
     
       <!-- Copyright -->
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2022 Copyright:
         <a class="text-white" href="{% url 'home' %}">The Art Of Flour</a>
       </div>
-      <!-- Copyright -->
     </footer>
       
     </div>

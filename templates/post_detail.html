@@ -1,31 +1,28 @@
 {% extends 'base.html' %} {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="container mt-5 masthead">
-    <div class="row">
-        <div class="col-lg-6  masthead-text">
-            <!-- Post title goes in these h1 tags -->
-            <article>
-                <header class="mb-4">
-                    <h1 class="fw-bolder mb-1 post-title">{{ post.title }}</h1>
-
-                    <!-- Post author goes before the | the post's created date goes after -->
-                    <div class="text-muted fst-italic mb-2">{{ post.author }} | {{ post.created_on }}</div>
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <!-- Post title goes in these h1 tags -->
+                <h1 class="post-title">{{ post.title }}</h1>
+                <!-- Post author goes before the | the post's created date goes after -->
+                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+            </div>
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                <!-- The featured image URL goes in the src attribute -->
+                {% if "placeholder" in post.featured_image.url %}
+                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                {% else %}
+                <img src=" {{ post.featured_image.url }}" width="100%">
+                {% endif %}
+            </div>
         </div>
-        </header>
-        <figure class="mb-4">
-            <!-- The featured image URL goes in the src attribute -->
-            {% if "placeholder" in post.featured_image.url %}
-            <img class=" d-md-block col-md-6 masthead-image"
-                src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-            {% else %}
-            <img class=" d-md-block col-md-6 masthead-image" src=" {{ post.featured_image.url }}" width="60%">
-            {% endif %}
-        </figure>
     </div>
 </div>
 
-<section class="container">
+<div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
@@ -42,18 +39,16 @@
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                        class="fas fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
                                 {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                        class="far fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
                                 {% endif %}
                             </form>
                             {% else %}
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
-                            <!-- The number of likes goes before the closing strong tag -->
-                            <span class="text-secondary">{{ post.number_of_likes }} </span>
+                        <!-- The number of likes goes before the closing strong tag -->
+                        <span class="text-secondary">{{ post.number_of_likes }} </span>
                         </strong>
                     </div>
                     <div class="col-1">
@@ -116,7 +111,6 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
-
-    {% endblock content %}
+{% endblock content %}
