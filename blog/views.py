@@ -91,21 +91,24 @@ class PostLike(View):
 
 
 def submit(request):
-    submitted = False
+
+    if not request.user.is_authenticated:
+        messages.error(request, "You must login before you can submit")
+        return redirect("/account/login/")
+        form = None
+
     if request.method == "POST":
         form = SubmitForm(request.POST, request.FILES)
+        form.instance.author = request.user
         if form.is_valid():
             form.save()
             messages.success(
                 request, 'Your recipe has been sent successfully!')
-            return HttpResponseRedirect('/?submitted=True')
+            return HttpResponseRedirect('/')
     else:
-        form = SubmitForm
-        if 'submitted' in request.GET:
-            submitted = True
         form = SubmitForm()
         return render(
-            request, 'submit.html', {'form': form, 'submitted': submitted})
+            request, 'submit.html', {'form': form})
 
 
 def add_contact(request):
