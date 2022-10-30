@@ -242,6 +242,10 @@ This project was deployed to Heroku. I followed these steps:
 - [Codemy](https://www.youtube.com/watch?v=CVEKe39VFu8) - How To Add Database Forms To A Web Page. Used to understand the logic of databases forms.
 - [mdbootstrap](https://mdbootstrap.com/snippets/standard/mdbootstrap/2885134?view=side) - I use it as an inspiration for my footer
 
+## Media
+ - The recipes and the photos were taken by [bbcGoodFood](https://www.bbcgoodfood.com/)
+
+
 ## Acknowledgements
 - I want to thank all the Code Institute's tutors for the great support
 - Martina Terlevic for reviewing my project and for providing to me a lot of useful feedbacks.
