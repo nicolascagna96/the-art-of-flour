@@ -9,7 +9,7 @@
             <hr />
             <h5>The best recipes will be posted in our Blog!</h5>
 
-        <form action="" method="POST" class="card p-3 mt-5">
+        <form action="" method="POST" class="card p-3 mt-5" enctype="multipart/form-data">
             {% csrf_token %}
             {{form|crispy}}
             <input type="submit" value="Submit" class="btn btn-primary">

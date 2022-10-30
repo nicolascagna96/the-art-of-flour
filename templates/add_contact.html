@@ -9,7 +9,7 @@
         <h2>Contact us</h2>
         <hr />
         <p>Feel free to contact us! We would like to hear your feedbacks about our recipes!</p>
-    <form action="" method="POST" class="card p-3 mt-5">
+    <form action="" method="POST" class="card p-3 mt-5" enctype="multipart/form-data">
         {% csrf_token %}
         {{form|crispy}}
         <input type="submit" value="Submit" class="btn btn-primary">
