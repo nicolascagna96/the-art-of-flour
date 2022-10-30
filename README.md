@@ -111,9 +111,6 @@ This is the navigation bar that the Users see after the Login.
 ## Submit Your Recipe message
 ![picture alt](/static/images/submit-recipe-message.PNG "the-art-of-flour")
 
-## Footer & Social Links
-![picture alt](/static/images/footer.PNG "the-art-of-flour")
-
 ## Post view
 ![picture alt](/static/images/post.PNG "the-art-of-flour")
 
@@ -122,6 +119,67 @@ This is the navigation bar that the Users see after the Login.
 
 ## Comment Pending Approval
 ![picture alt](/static/images/comment-approval.PNG "the-art-of-flour")
+
+## Django Administration - Superuser Access
+![picture alt](/static/images/superuser.PNG "the-art-of-flour")
+
+## Footer & Social Links
+![picture alt](/static/images/footer.PNG "the-art-of-flour")
+
+# Future Features to Implement
+
+- Host videos of the recipes.
+- Social media sign-in option
+
+# Bugs encountered during development
+ 1. I could not storage the imgaes provided by the Users in the Admin database for the contact and submit recipes forms.
+
+- I asked for help to the tutor and he suggested to me to add the "enctype" attribute in the form element.
+
+2. Error message after adding a form:
+- CSRF token had been added as CSRF and the error was fixed.
+
+3. App wasn't deploying to heroku correctly. 
+- Typo error. DEBUG = Flse instead of writing DEBUG = FALSE.
+
+4. CSS wasn't loading correctly.
+- The tutor explained to me that the error was caused by a space in the token provided.
+
+## Unfixed Bugs
+
+No unfixed bugs present so far.
+
+# Technologies Used
+
+## Languages Used
+
+-  [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-  [CSS3](https://en.wikipedia.org/wiki/CSS)
+-  [Python](https://en.wikipedia.org/wiki/Python"Python")
+-  [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+## Framewors, Libraries & Tools used
+- [Heroku](https://dashboard.heroku.com/apps"Heroku")
+- [PEP8](https://pep8.org/"PEP8")
+- [Github](https://github.com"Github")
+- [Gitpod](https://www.gitpod.io/"Gitpod")
+- [Cloudinary](https://cloudinary.com/users/login?RelayState=%2Fconsole%2Fgetting-started%3Fconsole_customer_external_id%3Dc-617cfc490e076cec8cf7a8126eac86")
+- [Balsamiq](https://balsamiq.com/)
+- [Django](https://www.djangoproject.com/)
+- [Balsamiq](https://balsamiq.com/)
+- [Google Lightouse](https://developer.chrome.com/docs/lighthouse/overview/)
+- [Font Awsome](https://fontawesome.com/)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
