@@ -45,11 +45,12 @@ admin.site.register(Recipes)
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'email', 'body','image')
+        'name', 'email', 'body', 'image')
     search_fields = ('name', 'email')
     actions = ['approve_recipes']
 
     def approve_recipes(self, request, queryset):
         queryset.update(approved=True)
+
 
 admin.site.register(Contact)
