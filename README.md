@@ -129,6 +129,11 @@ This is the navigation bar that the Users see after the Login.
 ## Comment
 ![picture alt](/static/images/comment.PNG "the-art-of-flour")
 
+## Deleting Comment
+![picture alt](/static/images/delete_comment.PNG "the-art-of-flour")
+![picture alt](/static/images/delete_comment_confirmation.PNG "the-art-of-flour")
+
+
 ## Comment Pending Approval
 ![picture alt](/static/images/comment-approval.PNG "the-art-of-flour")
 

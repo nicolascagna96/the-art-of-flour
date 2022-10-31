@@ -8,6 +8,10 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
 from .models import Recipes
+from .models import Comment
+from django.urls import reverse_lazy
+from django.views.generic.edit import DeleteView
+from django.contrib import messages
 
 # Class used in the 'I think therefore I blog' walkthrough
 
@@ -130,3 +134,9 @@ def add_contact(request):
         form = ContactForm()
         return render(
             request, 'add_contact.html', {'form': form, 'submitted': submitted})
+
+
+class DeleteComment(DeleteView):
+    model = Comment
+    template_name = 'comment-delete.html'
+    success_url = reverse_lazy('home')
