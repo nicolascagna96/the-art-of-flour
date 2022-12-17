@@ -7,16 +7,85 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
-from .models import Recipes
 from .models import Comment
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
 from django.contrib import messages
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
+
+# CRUD
+
+
+class CreatePostView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+
+    model = Post
+    template_name = "submit.html"
+    fields = ['title', 'slug', 'content', 'featured_image']
+    success_url = reverse_lazy('home')
+    success_message = ("New post has been created - Waiting for approval")
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class UpdatePostView(
+    UserPassesTestMixin,
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    UpdateView
+):
+    """ If user is logged can update a post """
+
+    model = Post
+    template_name = "submit.html"
+    fields = ['title', 'slug', 'content', 'featured_image']
+    success_url = reverse_lazy('home')
+    success_message = ("Your Post has been updated")
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
+
+class DeletePostView(
+    UserPassesTestMixin,
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    DeleteView
+):
+    """ If user is logged can delete a his post """
+
+    model = Post
+    template_name = "delete_post.html"
+    success_message = ("Your Post has been deleted")
+    success_url = reverse_lazy('home')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DeletePostView, self).delete(request, *args, **kwargs)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
 
 # Class used in the 'I think therefore I blog' walkthrough
 
 
 class PostList(generic.ListView):
+
+  
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
@@ -92,28 +161,6 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-# Submit database form
-
-
-def submit(request):
-
-    if not request.user.is_authenticated:
-        messages.error(request, "You must login before you can submit")
-        return redirect("/account/login/")
-        form = None
-
-    if request.method == "POST":
-        form = SubmitForm(request.POST, request.FILES)
-        form.instance.author = request.user
-        if form.is_valid():
-            form.save()
-            messages.success(
-                request, 'Your recipe has been sent successfully!')
-            return HttpResponseRedirect('/')
-    else:
-        form = SubmitForm()
-        return render(
-            request, 'submit.html', {'form': form})
 
 # Contact database form
 

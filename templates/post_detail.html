@@ -33,6 +33,20 @@
                 </p>
                 <div class="row">
 
+                    <p>
+                        {% if user.username == post.author.username %}
+
+                        <p>
+                            <a href="{% url 'post_update' post.slug %}" class="btn btn-primary btn-sm col-6"> Update
+                            </a>
+                            <p>
+                                <a href="{% url 'post_delete' post.slug %}" class="btn btn-danger btn-sm col-6"> Delete
+                                </a>
+                                <br>
+                                {% endif %}
+                        </p>
+                    </p>
+
                     <div class="col-1">
                         <strong>
                             {% if user.is_authenticated %}

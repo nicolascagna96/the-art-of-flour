@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--Delete Page-->
+<div class="row">
+    <div class="container mt-3 submission-form" style="width:95%; font-size: 14px; min-height: 100vh;">
+        <p>
+            <form method="post">
+
+                {% csrf_token %}
+
+               
+
+                <h3>Are you sure you want to delete "{{ object }}"? <br>
+                    This recipe will be deleted immediately<br>
+                   </h3> <br>
+                    
+                    {% if deleted %}
+                    <div class="alert alert-success" role="alert">your recipe has been deleted</div>
+                    
+                    {% endif %}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </p>
+    </div>
+</div>
+
+
+{% endblock %}
