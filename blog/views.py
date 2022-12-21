@@ -1,21 +1,17 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, TemplateView, View
-from .forms import CommentForm
-from .forms import SubmitForm
-from .forms import ContactForm
+from .forms import CommentForm, SubmitForm, ContactForm
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import Post
-from .models import Comment
+from .models import Post, Comment
 from django.urls import reverse_lazy
-from django.views.generic.edit import DeleteView
 from django.contrib import messages
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
-# CRUD
+# CRUD functionality
 
 
 class CreatePostView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -24,7 +20,7 @@ class CreatePostView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = "submit.html"
     fields = ['title', 'slug', 'content', 'featured_image']
     success_url = reverse_lazy('home')
-    success_message = ("New post has been created - Waiting for approval")
+    success_message = ("New recipe has been created - Waiting for approval")
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -37,13 +33,13 @@ class UpdatePostView(
     SuccessMessageMixin,
     UpdateView
 ):
-    """ If user is logged can update a post """
+    """ If the user is logged can update his recipe """
 
     model = Post
     template_name = "submit.html"
     fields = ['title', 'slug', 'content', 'featured_image']
     success_url = reverse_lazy('home')
-    success_message = ("Your Post has been updated")
+    success_message = ("Your Recipe has been updated")
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -62,11 +58,11 @@ class DeletePostView(
     SuccessMessageMixin,
     DeleteView
 ):
-    """ If user is logged can delete a his post """
+    """ If user is logged can delete a his recipe """
 
     model = Post
     template_name = "delete_post.html"
-    success_message = ("Your Post has been deleted")
+    success_message = ("Your Recipe has been deleted!")
     success_url = reverse_lazy('home')
 
     def delete(self, request, *args, **kwargs):

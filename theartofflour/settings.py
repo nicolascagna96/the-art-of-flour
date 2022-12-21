@@ -33,6 +33,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 # X_FRAME_OPTIONS = 'SAMEORIGIN'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
 ALLOWED_HOSTS = ["the-art-of-flour.herokuapp.com", "localhost"]
 

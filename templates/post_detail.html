@@ -37,10 +37,10 @@
                         {% if user.username == post.author.username %}
 
                         <p>
-                            <a href="{% url 'post_update' post.slug %}" class="btn btn-primary btn-sm col-6"> Update
+                            <a href="{% url 'post_update' post.slug %}" class="btn btn-primary btn-sm col-6"> Update Recipe
                             </a>
                             <p>
-                                <a href="{% url 'post_delete' post.slug %}" class="btn btn-danger btn-sm col-6"> Delete
+                                <a href="{% url 'post_delete' post.slug %}" class="btn btn-danger btn-sm col-6"> Delete Recipe
                                 </a>
                                 <br>
                                 {% endif %}
