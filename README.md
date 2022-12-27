@@ -8,11 +8,6 @@ The Art Of Flour is a recipes blog. It allows the users to replicate the recipes
 
 The live link for "The Art Of Flour" can be found [here](https://the-art-of-flour.herokuapp.com/ "The Art Of Flour")
 
-## QR Code
-Sacn the QR Code to open the live website!
-
-![picture alt](/static/images/frame.png "the-art-of-flour")
-
 
 # Table of Contents
 1. [Table of Contents](#table-of-contents)
@@ -32,22 +27,24 @@ Sacn the QR Code to open the live website!
 ## Admin Stories
 
 ### As an Admin:
- - As Site Admin I can create and submit new blog posts.
- - As Site Admin I can approve or delete the comments provided by the site Users.
- - As Site Admin I can collect and store in the database the recipes and the messages sent by the Site Users.
+- I have the superuser full access.
+ -I can create, read, edit and delete all the posts and recipes.
+ -I can approve, delete or edit the comments provided by the site Users in the backend.
+ -I can collect and store in the database messages sent by the Site Users from the contact form.
+ -I can approve/rejec/edit the users' posts(recipes) before publication in the backend.
 
  ## Visitor stories.
 
  ### As Site User:
 
- - I can leave comments on blog posts to leave my feedabacks.
+ - I can leave/delete my comments on all posts.
  - I can leave likes on blog posts.
  - I can register an account.
- - I can submit my own recipes to the Admin thank to the Submit Recipe form.
- - I can contact the Site Admin/Creator for asking question or to provide feedbacks.
+ - I can submit my own recipes(posts) and, with the Admin approval, public them on the site.
+- I can update/delete my recipes(posts) if logged in the blog.
+- I can contact the Site Admin for asking question and/or to provide feedbacks.
 
-
- # Agile Development
+# Agile Development
  Agile development practices have been used to manage and delivery this project.
 
  ## Agile Development Tools
@@ -99,29 +96,50 @@ This is the navigation bar that the Users see after the Login.
 ## Signup
 ![picture alt](/static/images/signup.PNG "the-art-of-flour")
 
+The user can creates an account through the Signup form
+
 ## Signin
 ![picture alt](/static/images/login.PNG "the-art-of-flour")
+An user that already have an account, can signin to his/her account through this form.
 
 ## Signin message
 ![picture alt](/static/images/signin-message.PNG "the-art-of-flour")
+When a user signs in, a success message is displayed on the screen.
 
 ## Logout
 ![picture alt](/static/images/logout.PNG "the-art-of-flour")
+An user can logout from the account.
 
 ## Logout message
 ![picture alt](/static/images/signout-message.PNG "the-art-of-flour")
+When a user signs out, a success message is displayed on the screen.
 
 ## Contact
 ![picture alt](/static/images/contact.PNG "the-art-of-flour")
 
 ## Contact message
 ![picture alt](/static/images/contact-message.PNG "the-art-of-flour")
+An users can contact the Site Admin throught the Contact From.
 
 ## Submit Your Recipe
-![picture alt](/static/images/submit-recipe.PNG "the-art-of-flour")
+![picture alt](/static/images/submit-recipes-form.PNG "the-art-of-flour")
+
+Once that the Site User creates his own recipe/post, the Site Admin will be able to review it and publish it from the Django Administration dashboard 
 
 ## Submit Your Recipe message
-![picture alt](/static/images/submit-recipe-message.PNG "the-art-of-flour")
+![picture alt](/static/images/submit-recipes-message.PNG "the-art-of-flour")
+Once that the user submit his/her post recipe, a pending approval message is displayed on the screen.
+
+## Update or Delete a Recipe Post(CRUD)
+![picture alt](/static/images/crud-functionality.PNG "the-art-of-flour")
+
+The author of the post can delete and/or edit his own post form the front-end.
+
+## Deleting Recipe 
+![picture alt](/static/images/delete-post-message.PNG "the-art-of-flour")
+
+## Recipe deletion successfull message
+![picture alt](/static/images/delete-recipe-message.PNG "the-art-of-flour")
 
 ## Post view
 ![picture alt](/static/images/post.PNG "the-art-of-flour")
@@ -131,14 +149,16 @@ This is the navigation bar that the Users see after the Login.
 
 ## Deleting Comment
 ![picture alt](/static/images/delete_comment.PNG "the-art-of-flour")
-![picture alt](/static/images/delete_comment_confirmation.PNG "the-art-of-flour")
 
+## Delete comment message
+![picture alt](/static/images/delete_comment_confirmation.PNG "the-art-of-flour")
 
 ## Comment Pending Approval
 ![picture alt](/static/images/comment-approval.PNG "the-art-of-flour")
 
 ## Django Administration - Superuser Access
-![picture alt](/static/images/superuser.PNG "the-art-of-flour")
+![picture alt](/static/images/site-administration.PNG "the-art-of-flour")
+From this dashboard the site Admin can manage the site content.
 
 ## Footer & Social Links
 ![picture alt](/static/images/footer.PNG "the-art-of-flour")
@@ -194,6 +214,7 @@ Good accessibility rating in Lighthouse
 
 ### Python code check
 Installed in GitPod pycodestyle, and use it to check the Python code. No issues found.(PEP8 website is still down)
+
 ![picture alt](/static/images/python-code.PNG "the-art-of-flour")
 
 ## Further Testings
@@ -246,6 +267,9 @@ This project was deployed to Heroku. I followed these steps:
 - [mdbootstrap](https://mdbootstrap.com/docs/standard/extended/login/) I used this code for the Login Form
 - [Codemy](https://www.youtube.com/watch?v=CVEKe39VFu8) - How To Add Database Forms To A Web Page. Used to understand the logic of databases forms.
 - [mdbootstrap](https://mdbootstrap.com/snippets/standard/mdbootstrap/2885134?view=side) - I use it as an inspiration for my footer
+- [medium](https://medium.com/jungletronics/a-django-blog-in-vs-code-3b6fc8eb19aa#b3ec) - I use it as an inspiration for the CRUD functionality.
+-  [django](https://docs.djangoproject.com/en/4.1/ref/contrib/messages/) - I use it as an inspiration for the message.
+- [sherryrich](https://github.com/sherryrich/heard-it) - I checked his Blog project as an inspiration for my project, especially for implementing the CRUD functionality. 
 
 ## Media
  - The recipes and the photos were taken by [bbcGoodFood](https://www.bbcgoodfood.com/)
