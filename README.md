@@ -76,7 +76,7 @@ The live link for "The Art Of Flour" can be found [here](https://the-art-of-flou
 
 ## Database Schema
 
-![picture alt](/static/images/databaseschema.png "the-art-of-flour")
+![picture alt](/static/images/database-schema.png "the-art-of-flour")
 
 # Features
 
@@ -215,6 +215,10 @@ Good accessibility rating in Lighthouse
 Installed in GitPod pycodestyle, and use it to check the Python code. No issues found.(PEP8 website is still down). When running "python3 -m flake8" in the terminal some lines that were reccommended to be shortened, I have left longer for readability purposes.
 
 ![picture alt](/static/images/python-code.PNG "the-art-of-flour")
+
+# Manual Testing
+![picture alt](/static/images/further-testing.PNG "the-art-of-flour")
+
 
 ## Further Testings
 - I tested the all the pages works in different browsers: Chrome, Safari and Safari.
