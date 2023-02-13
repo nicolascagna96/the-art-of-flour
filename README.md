@@ -18,7 +18,7 @@ The live link for "The Art Of Flour" can be found [here](https://the-art-of-flou
 4. [Features](#features)
 6. [Technologies Used](#technologies-used)
 7. [Testing](#testing)
-8. [ Deployment](#deployment)
+8. [Deployment](#deployment)
 9. [Credits](#credits)
 
 
@@ -27,22 +27,22 @@ The live link for "The Art Of Flour" can be found [here](https://the-art-of-flou
 ## Admin Stories
 
 ### As an Admin:
-- I have the superuser full access.
- -I can create, read, edit and delete all the posts and recipes.
- -I can approve, delete or edit the comments provided by the site Users in the backend.
- -I can collect and store in the database messages sent by the Site Users from the contact form.
- -I can approve/rejec/edit the users' posts(recipes) before publication in the backend.
+ - I have the superuser full access.
+ - I can create, read, edit and delete all the posts and recipes.
+ - I can approve, delete or edit the comments provided by the site Users in the backend.
+ - I can collect and store in the database messages sent by the Site Users from the contact form.
+ - I can approve/rejec/edit the users' posts(recipes) before publication in the backend.
 
- ## Visitor stories.
+## Visitor stories.
 
- ### As Site User:
+### As Site User:
 
  - I can leave/delete my comments on all posts.
  - I can leave likes on blog posts.
  - I can register an account.
  - I can submit my own recipes(posts) and, with the Admin approval, public them on the site.
-- I can update/delete my recipes(posts) if logged in the blog.
-- I can contact the Site Admin for asking question and/or to provide feedbacks.
+ - I can update/delete my recipes(posts) if logged in the blog.
+ - I can contact the Site Admin for asking question and/or to provide feedbacks.
 
 # Agile Development
  Agile development practices have been used to manage and delivery this project.
@@ -195,13 +195,12 @@ From this dashboard the site Admin can manage the site content.
 - django-crispy-forms
 - django-allauth
 - dj3-cloudinary-storage
--
 
 # Testing
 
 ### W3C HTML Validator
 No errors were found when passing all the html pages through the W3C validator.
-![picture alt](/static/images/html-checker.PNG "the-art-of-flour")
+![picture alt](/static/images/html-validator.PNG "the-art-of-flour")
 
 ### W3C CSS Validator
 No error were found when passing the CSS code through the validator
@@ -213,7 +212,7 @@ Good accessibility rating in Lighthouse
 ![picture alt](/static/images/lighthouse.PNG "the-art-of-flour")
 
 ### Python code check
-Installed in GitPod pycodestyle, and use it to check the Python code. No issues found.(PEP8 website is still down)
+Installed in GitPod pycodestyle, and use it to check the Python code. No issues found.(PEP8 website is still down). When running "python3 -m flake8" in the terminal some lines that were reccommended to be shortened, I have left longer for readability purposes.
 
 ![picture alt](/static/images/python-code.PNG "the-art-of-flour")
 
@@ -238,6 +237,7 @@ Installed in GitPod pycodestyle, and use it to check the Python code. No issues 
 
 ## Unfixed Bugs
 
+1. When running "python3 -m flake8" in the terminal some lines that were reccommended to be shortened, I have left longer for readability purposes.
 No unfixed bugs found.
 
 # Deployment
