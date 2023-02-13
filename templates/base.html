@@ -11,10 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
   </script>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
@@ -22,43 +23,44 @@
 
 <body class="d-flex flex-column h-100 main-bg">
   <div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="{% url 'home' %}">The Art of Flour</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#navbarText"
-    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="{% url 'home' %}">The Art of Flour</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'home' %}">Home</a>
-        </li>
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-        </li>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'submit' %}">Submit Your Recipe</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'submit' %}">Submit Your Recipe</a>
+          </li>
 
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-        </li>
-        {% endif %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'add_contact' %}">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  
- 
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add_contact' %}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
   <hr />
   <hr />
 
@@ -77,56 +79,58 @@
     </div>
   </div>
 
-    <main class="my-5">
-      {% block content %}
-      <!-- Content Goes here -->
-      {% endblock content %}
-    </main>
+  <main class="my-5">
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+  </main>
 
 
-    <footer class="footer bg-dark text-center mt-auto py-3 text-white">
-      <div class="row">
-        <section class="mb-4">
-          <!-- Facebook -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button" target="_blank"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-    
-          <!-- Instagram -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button" target="_blank"
-            ><i class="fab fa-instagram"></i
-          ></a>
-    
-          <!-- Linkedin -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button" target="_blank"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-    
-          <!-- Github -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/nicolascagna96" role="button" target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-        </section>
-      </div>
-    
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2022 Copyright:
-        <a class="text-white" href="{% url 'home' %}">The Art Of Flour</a>
-      </div>
-    </footer>
-          <!-- End of .container -->
+  <footer class="footer bg-dark text-center mt-auto py-3 text-white">
+    <div class="row">
+      <section class="mb-4">
+        <h4>You can find us at</h4>
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+          target="_blank"><i class="fab fa-facebook-f"></i></a>
 
-       <!-- font awesome script -->
-       <script src="https://kit.fontawesome.com/c7dbda0798.js" crossorigin="anonymous"></script>
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+          target="_blank"><i class="fab fa-instagram"></i></a>
 
-       <script>
-        setTimeout(function () {
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 2500);
-      </script>
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+          target="_blank"><i class="fab fa-linkedin-in"></i></a>
+
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/nicolascagna96" role="button"
+          target="_blank"><i class="fab fa-github"></i></a>
+      </section>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" href="{% url 'home' %}">The Art Of Flour</a>
+    </div>
+  </footer>
+  <!-- End of .container -->
+
+  <!-- font awesome script -->
+  <script src="https://kit.fontawesome.com/c7dbda0798.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <script>
+    setTimeout(function () {
+      let messages = document.getElementById('msg');
+      let alert = new bootstrap.Alert(messages);
+      alert.close();
+    }, 2500);
+  </script>
 
 </body>
 
